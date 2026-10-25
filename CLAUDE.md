@@ -12,7 +12,7 @@ A personal "can you come?" page for the wedding guests of Marcelo and his partne
 - **Wedding:** Istanbul, Türkiye, **August or September 2027** (exact date not set).
 - **Guests:** about 80 people, spread across continents, invited per invitation (solo, couple/plus-one, or family).
 - **Goal:** learn how many of their closest people can make it to Istanbul on those dates. This is **not** the formal invitation and it does **not** ask about the date or the venue.
-- **Reply deadline:** **8 November 2026**.
+- **Reply deadline:** **30 October 2026**.
 - **Sent via WhatsApp**, one personal link per invitation.
 
 ## Decisions already made (don't reopen without asking)
