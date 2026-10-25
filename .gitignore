@@ -1,0 +1,9 @@
+# Guest data never goes into the public repo
+guests/*
+!guests/guests.example.csv
+
+# Exports and local secrets
+*.xlsx
+*.csv.bak
+.env
+.DS_Store
