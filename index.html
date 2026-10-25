@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M &amp; M — Istanbul 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400&family=Jost:wght@300;400;500;600&display=swap">
+<style>
+/* Layout: dusk-over-the-Bosphorus hero, a single invitation card rising out of the water, Iznik-tile edge as the one ornament */
+:root{
+  --night:#232f41;      /* sky / page ground */
+  --ink:#0d1230;        /* deepest water */
+  --card:#fbf6ec;       /* invitation paper */
+  --card-ink:#1b2149;   /* text on paper */
+  --muted:#6b6f8c;
+  --iznik:#1f5fa8;      /* cobalt tile blue */
+  --turq:#2a9d9a;       /* turquoise */
+  --saffron:#d99a2b;    /* sunset gold */
+  --rose:#c4566a;
+  --line:#e4dccb;
+  --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --body:"Jost","Avenir Next","Segoe UI",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--night);color:var(--card);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+button,select,input{font:inherit}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--saffron);outline-offset:3px}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:#fbfdfd}
+.skyline{display:block;width:100%;max-width:100%;height:clamp(190px,30vw,380px);object-fit:cover;object-position:50% 100%;margin-top:-6px;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 14%);mask-image:linear-gradient(180deg,transparent 0,#000 14%)}
+.water{height:110px;background:linear-gradient(180deg,#b3d0eb 0%,var(--night) 100%);margin-top:-1px}
+.langs{position:absolute;top:14px;right:max(16px,env(safe-area-inset-right,0px));display:flex;gap:4px;background:rgba(35,47,65,.07);z-index:2;border-radius:999px;padding:4px}
+.langs button{border:0;background:transparent;color:#232f41;padding:4px 11px;border-radius:999px;font-size:12px;letter-spacing:.12em;cursor:pointer}
+.langs button[aria-pressed="true"]{background:#232f41;color:#fff}
+.hero-text{position:relative;z-index:1;text-align:center;padding:64px 16px 0}
+.eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:#56657d}
+.mono{font-family:var(--display);font-weight:400;font-size:clamp(54px,11vw,92px);line-height:1;margin:.15em 0 0;color:#232f41}
+.mono i{font-style:italic;color:#d99a3a;font-size:.62em;vertical-align:.18em;margin:0 .12em}
+
+/* invitation card */
+main{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 56px}
+.card{position:relative;max-width:560px;margin:-70px auto 0;padding-top:1px;background:var(--card);color:var(--card-ink);border-radius:4px;box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
+.flourish{display:flex;align-items:center;gap:10px;margin:22px clamp(20px,6vw,44px) 0}
+.flourish::before,.flourish::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,#4f7cae)}
+.flourish::after{background:linear-gradient(90deg,#4f7cae,transparent)}
+.flourish svg{width:120px;height:24px;flex:none}
+.inner{padding:30px clamp(20px,6vw,44px) 34px;display:grid;gap:22px}
+.portrait{position:relative;z-index:2;display:block;width:min(210px,54vw);aspect-ratio:2/3;max-width:100%;margin:-90px auto 0;object-fit:cover;object-position:50% 40%;border-radius:999px 999px 10px 10px;box-shadow:0 0 0 6px var(--card),0 0 0 8px #4f7cae,0 24px 40px -18px rgba(0,0,0,.55)}
+.tulip{display:flex;align-items:center;gap:14px}
+.tulip::before,.tulip::after{content:"";flex:1;height:1px;background:var(--line)}
+.tulip svg{width:22px;height:30px;flex:none}
+.meta{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 18px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--iznik);font-weight:500;text-align:center}
+.meta span+span::before{content:"◆";color:var(--saffron);margin-right:18px;font-size:8px;vertical-align:2px}
+h1{font-family:var(--display);font-weight:400;font-style:italic;font-size:clamp(30px,7vw,40px);line-height:1.15;margin:0;text-align:center;text-wrap:balance}
+.intro{margin:0;color:#3a3f63;text-align:center;font-weight:300;font-size:17px}
+.party{justify-self:center;font-size:14px;color:var(--card-ink);background:#efe6d2;border-radius:999px;padding:6px 16px}
+.divider{height:1px;background:var(--line)}
+h2{font-family:var(--display);font-weight:600;font-size:22px;margin:0;text-align:center;text-wrap:balance}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{position:relative;display:grid;gap:2px;text-align:left;border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:14px 14px 13px;cursor:pointer;color:var(--card-ink);transition:border-color .15s,background .15s,transform .15s}
+.opt:hover{border-color:#c9bfa8}
+.opt .dot{width:10px;height:10px;border-radius:50%;margin-bottom:6px}
+.opt b{font-weight:500;font-size:15px;line-height:1.3}
+.opt[aria-checked="true"]{border-color:var(--iznik);background:#eef3fb}
+.opt[aria-checked="true"]::after{content:"✓";position:absolute;top:10px;right:12px;color:var(--iznik);font-weight:600}
+.count{display:grid;gap:10px;justify-items:center}
+.count p{margin:0;font-size:15px}
+.stepper{display:flex;align-items:center;gap:6px;border:1.5px solid var(--line);border-radius:999px;padding:4px;background:#fff}
+.stepper button{width:40px;height:40px;border-radius:50%;border:0;background:#efe6d2;color:var(--card-ink);font-size:20px;cursor:pointer}
+.stepper button:disabled{opacity:.35;cursor:default}
+.stepper output{min-width:64px;text-align:center;font-family:var(--display);font-size:26px;font-variant-numeric:tabular-nums}
+.stepper small{display:block;font-family:var(--body);font-size:11px;color:var(--muted);margin-top:-4px}
+.send{justify-self:center;border:0;border-radius:999px;padding:14px 34px;background:var(--iznik);color:#fff;font-weight:500;letter-spacing:.06em;cursor:pointer;font-size:15px}
+.send:disabled{background:#b9bccf;cursor:default}
+.fine{margin:0;text-align:center;font-size:13px;color:var(--muted)}
+.fine strong{color:var(--rose);font-weight:500}
+.thanks{display:grid;gap:14px;justify-items:center;text-align:center}
+.thanks .seal{width:64px;height:64px;border-radius:50%;background:var(--iznik);color:#fff;display:grid;place-items:center;font-family:var(--display);font-style:italic;font-size:26px;box-shadow:0 0 0 6px #e3ebf7}
+.thanks p{margin:0}
+.ghost{border:1.5px solid var(--line);background:transparent;border-radius:999px;padding:9px 20px;color:var(--card-ink);cursor:pointer}
+.note{margin:0;font-size:13px;color:var(--muted);text-align:center;font-style:italic}
+
+@media (max-width:420px){.opts{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="langs" role="group" aria-label="Language">
+    <button data-l="es" aria-pressed="false">ES</button>
+    <button data-l="en" aria-pressed="false">EN</button>
+    <button data-l="tr" aria-pressed="false">TR</button>
+  </div>
+  <div class="hero-text">
+    <div class="eyebrow" id="eyebrow"></div>
+    <div class="mono">M<i>&amp;</i>M</div>
+  </div>
+  <img class="skyline" alt="" src="assets/istanbul-skyline.jpg">
+  <div class="water" aria-hidden="true"></div>
+</div>
+
+<main>
+  <section class="card">
+    <img class="portrait" alt="Marcelo and his partner" src="assets/couple.jpg">
+    <div class="flourish" aria-hidden="true"><svg viewBox="0 0 120 24"><g fill="none" stroke="#4f7cae" stroke-width="1" stroke-linecap="round"><path d="M60 4c4 4 4 12 0 16c-4-4-4-12 0-16Z" fill="#4f7cae" fill-opacity=".18"/><path d="M54 12c-6-7-14-7-18 0c4 5 10 5 13 1"/><path d="M66 12c6-7 14-7 18 0c-4 5-10 5-13 1"/><circle cx="31" cy="12" r="1.6" fill="#4f7cae"/><circle cx="89" cy="12" r="1.6" fill="#4f7cae"/></g></svg></div>
+    <div class="inner" id="inner"></div>
+  </section>
+</main>
+
+<script>
+// Apps Script web app URL — filled in once the backend is deployed (step 3).
+// Contract: GET ?code=XXXX -> {ok:true,name,size,lang,status,count} or {ok:false,error}
+//           POST (text/plain body, JSON string) {code,status,count} -> {ok:true} or {ok:false,error}
+const API_URL = "";
+
+const DEADLINE = {es:"8 de noviembre de 2026", en:"November 8, 2026", tr:"8 Kasım 2026"};
+
+const STATUS = {
+  yes:        {col:"#2a9d9a", bg:"#dff2f0", es:"Sí, seguro",       en:"Yes, definitely", tr:"Evet, kesinlikle"},
+  likely_yes: {col:"#d99a2b", bg:"#f8ecd4", es:"Probablemente sí", en:"Probably yes",    tr:"Büyük ihtimalle evet"},
+  likely_no:  {col:"#c4566a", bg:"#f5e0e4", es:"Probablemente no", en:"Probably not",    tr:"Büyük ihtimalle hayır"},
+  no:         {col:"#6b6f8c", bg:"#e8e8ef", es:"No será posible",  en:"Sadly, no",       tr:"Maalesef hayır"}
+};
+
+const T = {
+  es:{eyebrow:"Nos casamos", hi:n=>`Hola, ${n}`,
+      intro:"Vamos a celebrar nuestra boda en Estambul entre agosto y septiembre de 2027. Sabemos que es un viaje largo, y nos encantaría saber quiénes de nuestras personas más queridas podrían acompañarnos en Estambul en esas fechas.",
+      when:"Agosto – Septiembre 2027", where:"Estambul, Turquía",
+      p1:"Esta invitación es para ti", pn:n=>`Esta invitación es para ${n} personas`,
+      q1:"¿Crees que podrás venir?", qn:"¿Creen que podrán venir?",
+      howMany:"¿Cuántos de ustedes vendrían?", of:n=>`de ${n}`,
+      send:"Enviar respuesta", by:d=>`Por favor responde antes del <strong>${d}</strong>.`,
+      thanks:n=>`¡Gracias, ${n}!`, got:"Recibimos tu respuesta:", people:c=>c===1?"1 persona":`${c} personas`,
+      change:"Cambiar respuesta", canChange:"Puedes cambiarla cuando quieras desde este mismo enlace.",
+      note:"Aún no es la invitación formal. Te enviaremos todos los detalles cuando esté todo confirmado.",
+      loading:"Cargando tu invitación…",
+      invalidLink:"No encontramos esta invitación. Revisa que copiaste el enlace completo, o escríbenos directamente.",
+      sendError:"No pudimos enviar tu respuesta. Inténtalo de nuevo en un momento."},
+  en:{eyebrow:"We're getting married", hi:n=>`Hi, ${n}`,
+      intro:"We're celebrating our wedding in Istanbul in August or September 2027. We know it's a long trip, and we'd love to know which of our closest people might be able to join us in Istanbul on those dates.",
+      when:"August – September 2027", where:"Istanbul, Türkiye",
+      p1:"This invitation is for you", pn:n=>`This invitation is for ${n} people`,
+      q1:"Do you think you can make it?", qn:"Do you think you can make it?",
+      howMany:"How many of you would come?", of:n=>`of ${n}`,
+      send:"Send reply", by:d=>`Please reply by <strong>${d}</strong>.`,
+      thanks:n=>`Thank you, ${n}!`, got:"We got your reply:", people:c=>c===1?"1 person":`${c} people`,
+      change:"Change reply", canChange:"You can change it anytime from this same link.",
+      note:"This isn't the formal invitation yet. We'll send all the details once everything is confirmed.",
+      loading:"Loading your invitation…",
+      invalidLink:"We couldn't find this invitation. Please check you copied the full link, or just message us directly.",
+      sendError:"We couldn't send your reply. Please try again in a moment."},
+  tr:{eyebrow:"Evleniyoruz", hi:n=>`Merhaba ${n}`,
+      intro:"Düğünümüzü 2027 Ağustos ya da Eylül ayında İstanbul'da kutlayacağız. Uzun bir yolculuk olduğunu biliyoruz ve en yakınlarımızdan kimlerin o tarihlerde İstanbul'da yanımızda olabileceğini merak ediyoruz.",
+      when:"Ağustos – Eylül 2027", where:"İstanbul, Türkiye",
+      p1:"Bu davet sana özel", pn:n=>`Bu davet ${n} kişi için`,
+      q1:"Gelebileceğini düşünüyor musun?", qn:"Gelebileceğinizi düşünüyor musunuz?",
+      howMany:"Kaç kişi gelirsiniz?", of:n=>`/ ${n}`,
+      send:"Yanıtı gönder", by:d=>`Lütfen <strong>${d}</strong> tarihine kadar yanıtla.`,
+      thanks:n=>`Teşekkürler, ${n}!`, got:"Yanıtını aldık:", people:c=>`${c} kişi`,
+      change:"Yanıtı değiştir", canChange:"Bu bağlantıdan istediğin zaman değiştirebilirsin.",
+      note:"Bu henüz resmi davetiye değil. Her şey kesinleşince tüm ayrıntıları göndereceğiz.",
+      loading:"Davetin yükleniyor…",
+      invalidLink:"Bu daveti bulamadık. Bağlantının tamamını kopyaladığından emin ol, ya da bize doğrudan yaz.",
+      sendError:"Yanıtını gönderemedik. Lütfen birazdan tekrar dene."}
+};
+
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+let lang="en", view="loading", guest=null, draft={s:null,c:1}, editing=false, sending=false, sendError=false;
+
+function setLang(l){
+  lang=l;
+  document.documentElement.lang=l;
+  document.querySelectorAll(".langs button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===l));
+  $("#eyebrow").textContent=T[l].eyebrow;
+  render();
+}
+document.querySelectorAll(".langs button").forEach(b=>b.onclick=()=>setLang(b.dataset.l));
+$("#eyebrow").textContent=T[lang].eyebrow;
+
+function render(){
+  if(view==="loading") return renderLoading();
+  if(view==="error") return renderError();
+  renderGuestView();
+}
+
+function renderLoading(){
+  $("#inner").innerHTML=`
+    <div class="thanks">
+      <div class="seal">M&amp;M</div>
+      <p class="intro">${T[lang].loading}</p>
+    </div>`;
+}
+
+function renderError(){
+  $("#inner").innerHTML=`
+    <div class="thanks">
+      <div class="seal">M&amp;M</div>
+      <p class="intro">${T[lang].invalidLink}</p>
+    </div>`;
+}
+
+function renderGuestView(){
+  const t=T[lang], g=guest;
+  const head=`
+    <div class="meta"><span>${t.when}</span><span>${t.where}</span></div>
+    <h1>${esc(t.hi(g.name))}</h1>
+    <p class="intro">${t.intro}</p>
+    <div class="party">${g.size===1?t.p1:t.pn(g.size)}</div>
+    <div class="tulip" aria-hidden="true"><svg viewBox="0 0 22 30"><path d="M11 2C7 6 5 10 6 14c1 3 3 4 5 4s4-1 5-4c1-4-1-8-5-12Z" fill="#c4566a"/><path d="M11 6c-1.6 3-2 6-1 9" stroke="#fbf6ec" stroke-width="1" fill="none"/><path d="M11 18v11M11 25c-3-1-5-3-6-6M11 23c3-1 5-3 6-6" stroke="#2a9d9a" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg></div>`;
+  const inner=$("#inner");
+
+  if(g.status && !editing){
+    const st=STATUS[g.status], going=(g.status==="yes"||g.status==="likely_yes");
+    inner.innerHTML=head+`
+      <div class="thanks">
+        <div class="seal">M&amp;M</div>
+        <h2>${esc(t.thanks(g.name))}</h2>
+        <p>${t.got} <span class="chip" style="background:${st.bg};color:#1b2149"><i style="background:${st.col}"></i>${st[lang]}</span>${going&&g.size>1?` · ${t.people(g.count)}`:""}</p>
+        <p class="fine">${t.canChange}</p>
+        <button class="ghost" id="chg">${t.change}</button>
+      </div>
+      <p class="note">${t.note}</p>`;
+    $("#chg").onclick=()=>{editing=true;draft={s:g.status,c:g.count||g.size};render()};
+    return;
+  }
+
+  const going=(draft.s==="yes"||draft.s==="likely_yes");
+  inner.innerHTML=head+`
+    <h2>${g.size===1?t.q1:t.qn}</h2>
+    <div class="opts" role="radiogroup">
+      ${Object.entries(STATUS).map(([k,v])=>`
+        <button class="opt" role="radio" aria-checked="${draft.s===k}" data-s="${k}">
+          <span class="dot" style="background:${v.col}"></span><b>${v[lang]}</b>
+        </button>`).join("")}
+    </div>
+    ${g.size>1&&going?`
+    <div class="count">
+      <p>${t.howMany}</p>
+      <div class="stepper">
+        <button id="minus" aria-label="−" ${draft.c<=1?"disabled":""}>−</button>
+        <output id="cnt">${draft.c}<small>${t.of(g.size)}</small></output>
+        <button id="plus" aria-label="+" ${draft.c>=g.size?"disabled":""}>+</button>
+      </div>
+    </div>`:""}
+    <button class="send" id="send" ${draft.s&&!sending?"":"disabled"}>${t.send}</button>
+    ${sendError?`<p class="fine"><strong>${t.sendError}</strong></p>`:""}
+    <p class="fine">${t.by(DEADLINE[lang])}</p>
+    <p class="note">${t.note}</p>`;
+  inner.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{draft.s=b.dataset.s;sendError=false;render()});
+  if($("#minus")){ $("#minus").onclick=()=>{draft.c=Math.max(1,draft.c-1);render()};
+                   $("#plus").onclick=()=>{draft.c=Math.min(g.size,draft.c+1);render()}; }
+  $("#send").onclick=submitReply;
+}
+
+async function submitReply(){
+  if(!draft.s||sending) return;
+  sending=true; sendError=false; render();
+  const going=(draft.s==="yes"||draft.s==="likely_yes");
+  const count=going?(guest.size===1?1:draft.c):0;
+  try{
+    const res=await fetch(API_URL,{
+      method:"POST",
+      headers:{"Content-Type":"text/plain;charset=utf-8"},
+      body:JSON.stringify({code:getCode(),status:draft.s,count})
+    });
+    const data=await res.json();
+    if(!data.ok) throw new Error(data.error||"failed");
+    guest.status=draft.s; guest.count=count; editing=false;
+  }catch(e){
+    sendError=true;
+  }
+  sending=false; render();
+}
+
+function getCode(){
+  return decodeURIComponent(location.hash.slice(1)).trim();
+}
+
+async function loadGuest(){
+  const code=getCode();
+  if(!code){ view="error"; render(); return; }
+  view="loading"; render();
+  try{
+    const res=await fetch(`${API_URL}?code=${encodeURIComponent(code)}`);
+    const data=await res.json();
+    if(!data.ok){ view="error"; render(); return; }
+    guest=data; editing=false; draft={s:null,c:guest.size};
+    setLang(guest.lang||"en");
+    view="guest"; render();
+  }catch(e){
+    view="error"; render();
+  }
+}
+
+window.addEventListener("hashchange",loadGuest);
+loadGuest();
+</script>
+</body>
+</html>
